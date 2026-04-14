@@ -64,6 +64,18 @@ public abstract class Person implements Serializable {
         this.email = email;
     }
     
+    /**
+     * Defines the specific role and responsibilities of the person
+     * within the university ecosystem.
+     * <p>
+     * This is a <b>polymorphic method</b>. Because it is marked as {@code abstract},
+     * every non-abstract subclass (e.g., Student, Professor) is
+     * <i>strictly required</i> to provide its own specific implementation.
+     * </p>
+     * @return a {@code String} describing the person's functional role.
+     */
+    public abstract String describeRole();
+    
     // --- Accessor and Mutator Methods (Encapsulation) ---
     
     /**

@@ -46,11 +46,20 @@ public abstract class Person implements Serializable {
     }
     
     /**
-     * Parameterized constructor for initializing a Person with core attributes.
-     * @param name  The full name of the individual.
-     * @param email The university-affiliated email address.
+     * Parameterized constructor with Defensive Programming logic.
+     * Ensures that a Person cannot be instantiated with null or blank attributes.
+     * @param name  The full name of the individual (cannot be null or blank).
+     * @param email The university email address (cannot be null or blank).
+     * @throws IllegalArgumentException if name or email is null/blank.
      */
     public Person (String name, String email) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name cannot be null or blank");
+        }
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException("Email cannot be null or blank");
+        }
+        
         this.name = name;
         this.email = email;
     }
